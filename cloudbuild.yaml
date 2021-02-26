@@ -6,6 +6,6 @@ steps:
 # Deploy container image to Cloud Run
 - name: 'gcr.io/google.com/cloudsdktool/cloud-sdk'
   entrypoint: gcloud
-  args: ['run', 'deploy', 'nlp-production', '--image', 'gcr.io/third-zephyr-306002/github.com/isinghgithub/gcp_docker_nlp:$SHORT_SHA', '--region', 'REGION', '--platform', 'managed']
+  args: ['run', 'deploy', 'nlp-production', '-v', '--image', 'gcr.io/third-zephyr-306002/github.com/isinghgithub/gcp_docker_nlp:$SHORT_SHA', '--region', 'REGION', '--platform', 'managed']
 images:
 - 'gcr.io/third-zephyr-306002/github.com/isinghgithub/gcp_docker_nlp'
