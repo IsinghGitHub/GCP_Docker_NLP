@@ -1,5 +1,5 @@
 steps:
 - name: 'gcr.io/cloud-builders/docker'
-  args: ['build', '-t', 'gcr.io/nlp-production/gcp_docker_nlp:$SHORT_SHA', '.']
+  args: ['build', '-t', 'gcr.io/third-zephyr-306002/github.com/isinghgithub/gcp_docker_nlp:$SHORT_SHA', '.']
 - name: 'gcr.io/cloud-builders/docker'
-  args: ['push', 'gcr.io/nlp-production/gcp_docker_nlp:$SHORT_SHA']
+  args: ['push', 'gcr.io/third-zephyr-306002/github.com/isinghgithub/gcp_docker_nlp:$SHORT_SHA']
