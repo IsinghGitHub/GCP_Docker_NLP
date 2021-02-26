@@ -3,3 +3,7 @@ steps:
   args: ['build', '-t', 'gcr.io/third-zephyr-306002/github.com/isinghgithub/gcp_docker_nlp:$SHORT_SHA', '.']
 - name: 'gcr.io/cloud-builders/docker'
   args: ['push', 'gcr.io/third-zephyr-306002/github.com/isinghgithub/gcp_docker_nlp:$SHORT_SHA']
+- name: 'gcr.io/cloud-builders/gcloud'
+  args: ['beta', 'run', 'deploy', 'third-zephyr-306002', '--image=gcr.io/third-zephyr-306002/github.com/isinghgithub/gcp_docker_nlp:$SHORT_SHA', '--region=us-central1']
+
+  
