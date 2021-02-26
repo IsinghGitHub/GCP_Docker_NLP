@@ -3,5 +3,9 @@ steps:
   args: ['build', '-t', 'gcr.io/third-zephyr-306002/github.com/isinghgithub/gcp_docker_nlp:$SHORT_SHA', '.']
 - name: 'gcr.io/cloud-builders/docker'
   args: ['push', 'gcr.io/third-zephyr-306002/github.com/isinghgithub/gcp_docker_nlp:$SHORT_SHA']
-- name: 'gcr.io/cloud-builders/gcloud'
-  args: ['beta' ,'run', 'deploy',  'nlp-production', '--platform=managed','--image=gcr.io/third-zephyr-306002/github.com/isinghgithub/gcp_docker_nlp:$SHORT_SHA' ,'--region=us-central']
+# Deploy container image to Cloud Run
+- name: 'gcr.io/google.com/cloudsdktool/cloud-sdk'
+  entrypoint: gcloud
+  args: ['run', 'deploy', 'SERVICE-NAME', '--image', 'gcr.io/third-zephyr-306002/github.com/isinghgithub/gcp_docker_nlp', '--region', 'REGION', '--platform', 'managed']
+images:
+- 'gcr.io/third-zephyr-306002/github.com/isinghgithub/gcp_docker_nlp'
